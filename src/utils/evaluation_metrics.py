@@ -61,7 +61,8 @@ class RetrieverMetrics:
 class ReaderMetrics:
     def __init__(self, base_dir):
         self.rouge_obj = ROUGEScore()
-        self.bleu_obj = BLEUScore(n_gram=2)
+        self.bleu1_obj = BLEUScore(n_gram=1)
+        self.bleu2_obj = BLEUScore(n_gram=2)
         print("Loading Meteor...")
         self.meteor_obj = evaluate.load(f"{base_dir}/src/utils/metrics/meteor")
         print("Loading ExactMatch")
@@ -76,10 +77,16 @@ class ReaderMetrics:
             accum.append(self.rouge_obj(predicted[i], targets[i])['rougeL_fmeasure'])
         return round(np.mean(accum),5)
 
+    def bleu1(self, predicted: List[str], targets: List[str]):
+        accum = []
+        for i in range(len(targets)):
+            accum.append(self.bleu1_obj([predicted[i]], [[targets[i]]]))
+        return round(np.mean(accum),5)
+
     def bleu2(self, predicted: List[str], targets: List[str]):
         accum = []
         for i in range(len(targets)):
-            accum.append(self.bleu_obj([predicted[i]], [[targets[i]]]))
+            accum.append(self.bleu2_obj([predicted[i]], [[targets[i]]]))
         return round(np.mean(accum),5)
 
     def meteor(self, predicted: List[str], targets: List[str]):
