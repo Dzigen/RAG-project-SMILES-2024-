@@ -1,0 +1,41 @@
+{
+ "info": {
+  "mtssquad": {
+   "db": "v1",
+   "table": "v1"
+  }
+ },
+ "hyperp": {
+  "args": {
+   "model_path": "/home/dzigen/Desktop/nlp_models/intfloat/multilingual-e5-small",
+   "densedb_kwargs": {
+    "metadata": {
+     "hnsw:space": "l2"
+    },
+    "name": "mtssquad"
+   },
+   "model_kwargs": {
+    "device": "cuda"
+   },
+   "encode_kwargs": {
+    "normalize_embeddings": false,
+    "prompt": "query: "
+   },
+   "params": {
+    "fetch_k": 50,
+    "threshold": 8.0,
+    "max_k": 3
+   },
+   "densedb_path": "../../data/mtssquad/dbs/v1/densedb"
+  },
+  "benchmark_sizes": 1000
+ },
+ "scores": {
+  "mtssquad": {
+   "MRR": 0.8014998900000001,
+   "Recall@3": 1.0,
+   "Precision@3": 0.33333,
+   "F1@3": 0.499996249990625
+  }
+ }
+}

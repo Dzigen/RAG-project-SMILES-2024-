@@ -28,7 +28,8 @@ class LLM_model:
             model_path=self.conf_Hard.model_path,
             n_gpu_layers=self.conf_Hard.n_gpu_layers, 
             seed=self.conf_Hard.seed,
-            n_ctx=self.conf_Hard.n_ctx
+            n_ctx=self.conf_Hard.n_ctx,
+            verbose=self.conf_Hard.verbose
         )
 
     def prepare_assist_content(self, docs: List[str]) -> str:
