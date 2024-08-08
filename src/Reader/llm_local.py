@@ -32,10 +32,7 @@ class LLM_model:
             verbose=self.conf_Hard.verbose
         )
 
-    def prepare_assist_content(self, docs: List[str]) -> str:
-        return '\n\n'.join(docs)
-
-    def generate(self, user_prompt:str, docs: List[str]) -> str:
+    def generate(self, user_prompt:str, context: str = None) -> str:
 
         """
         Метод для создания чата с моделью и генерации ответа на вопрос
@@ -46,34 +43,21 @@ class LLM_model:
         Контент ответа:
         - output['choices'][0]["message"]['content']
         """
-        
-        assist_content = self.prepare_assist_content(docs)
+
+        msgs = [
+            {"role": "system", "content": self.conf_Hard.system_prompt},
+            {"role": "user","content": user_prompt}
+            ]
+
+        if context is not None:
+            msgs.insert(1, {"role": "assistant", "content": context},)
 
         output = self.model.create_chat_completion(
-            messages = [
-            {"role": "system", "content": f"{self.conf_Hard.system_prompt}\n\n{assist_content}"},
-            {"role": "assistant", "content": self.conf_Hard.assistant_prompt},
-            {"role": "user","content": user_prompt}
-            ],
+            messages = msgs,
             **asdict(self.conf_Hyper)
         )
 
         return output
 
 if __name__=="__main__":
-
-    conf1 = LLM_Hardw_Conf()
-    conf2 = LLM_Hyper_Conf()
-
-    model = LLM_model(conf1, conf2)
-    
-    assistant_context = "Это твоя база знаний. Используй её при ответе: Вектор – это направленный отрезок прямой, т. е. отрезок, имеющий определенную длину и определенное направление."
-    user_prompt = 'Что такое вектор?'
-
-    output = model.generate(assistant_context, user_prompt)
-
-    for item in output:
-        try:
-            print(item['choices'][0]['delta']['content'], end='')
-        except Exception:
-            continue
+    pass

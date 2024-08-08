@@ -23,11 +23,13 @@ class ThresholdRetriever:
             include=["documents", "metadatas", "distances"],
             n_results=self.config.params['fetch_k'])
         
-        distance_metric = self.config.densedb_kwargs['metadata']["hnsw:space"]
-        filtered_docs_id = list(filter(
-            lambda i: docs_with_scores['distances'][0][i] < self.config.params['threshold'], 
-                                                    range(len(docs_with_scores['documents'][0]))))
-        
+        if self.config.params['threshold'] > 0:
+            filtered_docs_id = list(filter(
+                lambda i: docs_with_scores['distances'][0][i] < self.config.params['threshold'], 
+                                                        range(len(docs_with_scores['documents'][0]))))
+        else:
+            filtered_docs_id = list(range(len(docs_with_scores['documents'][0])))
+
         if self.config.params['max_k'] > 0:
             filtered_docs_id = filtered_docs_id[:self.config.params['max_k']]
 
