@@ -3,7 +3,6 @@ from dataclasses import dataclass
 
 @dataclass
 class LLM_Hardw_Conf:
-
     model_path:str = '/home/dzigen/Desktop/nlp_models/model_llm/blobs/sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa' # Путь до модели
     n_gpu_layers:int = -1               # Количество слоев, которые нужно выгрузить в графический процессор (-ngl). Если -1, все слои будут выгружены.
     seed:int = 42                       # 

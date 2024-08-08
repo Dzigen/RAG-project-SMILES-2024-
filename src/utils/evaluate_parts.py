@@ -20,11 +20,11 @@ def evaluate_reader(benchmarks_df: dict, reader: LLM_model,
         cache[name] = []
 
         process = tqdm(range(benchmarks_df[name].shape[0])) 
-        show_step = 500
+        show_step = 1
         for i in process:
             question = benchmarks_df[name]['question'][i]
             predicted_answer = reader.generate(question, None if contexts is None else contexts[i])
-            target_answer = benchmarks_df[name]['question'][i]
+            target_answer = benchmarks_df[name]['answer'][i]
 
             scores['BLEU1'].append(metrics.bleu1([predicted_answer], [target_answer]))
             scores['BLEU2'].append(metrics.bleu2([predicted_answer], [target_answer]))
@@ -34,9 +34,10 @@ def evaluate_reader(benchmarks_df: dict, reader: LLM_model,
             cache[name].append(target_answer)
 
             if i % show_step == 0:
-                process.set_postfix({name: np.median(scores) for name, scores in scores[name].items()})
+                process.set_postfix({name: np.mean(scores) for name, scores in scores[name].items()})
 
-        scores[name] = {name: np.median(scores) for name, scores in scores[name].items()}
+        scores[name] = {name: np.mean(scores) for name, scores in scores[name].items()}
+        scores[name]['elapsed_time_sec'] = round(process.format_dict["elapsed"], 3)
         process.set_postfix(scores[name])
 
     return scores, cache
@@ -44,10 +45,9 @@ def evaluate_reader(benchmarks_df: dict, reader: LLM_model,
 
 def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict, 
                        metrics: RetrieverMetrics):
-
     scores = {}
     cache_ids = {}
-    cache_texts = {}
+    cache_docs = {}
     for _, name in enumerate(benchmarks_df.keys()):
         print(name)
 
@@ -60,7 +60,7 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
             'F1': [] 
         }
         cache_ids[name] = []
-        cache_texts[name] = []
+        cache_docs[name] = []
 
         process = tqdm(range(benchmarks_df[name].shape[0])) 
         show_step = 500
@@ -78,12 +78,13 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
             scores[name]['F1'].append(0 if np.isnan(f1_score) else f1_score)
 
             cache_ids[name].append(predicted_chunk_ids)
-            cache_texts[name].append(predicted_chunks)
+            cache_docs[name].append(predicted_chunks)
 
             if i % show_step == 0:
-                process.set_postfix({name: np.median(scores) for name, scores in scores[name].items()})
+                process.set_postfix({m_name: np.mean(score) for m_name, score in scores[name].items()})
 
-        scores[name] = {name: np.median(scores) for name, scores in scores[name].items()}
+        scores[name] = {m_name: np.mean(score) for m_name, score in scores[name].items()}
+        scores[name]['elapsed_time_sec'] = round(process.format_dict["elapsed"],3)
         process.set_postfix(scores[name])
-
-    return scores, cache_ids, cache_texts
+        
+    return scores, cache_ids, cache_docs

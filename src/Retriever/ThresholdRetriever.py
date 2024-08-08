@@ -32,6 +32,6 @@ class ThresholdRetriever:
 
         if self.config.params['max_k'] > 0:
             filtered_docs_id = filtered_docs_id[:self.config.params['max_k']]
-
+        
         return list(map(lambda i: [docs_with_scores['distances'][0][i], docs_with_scores['documents'][0][i], 
                                        docs_with_scores['metadatas'][0][i]], filtered_docs_id))  
