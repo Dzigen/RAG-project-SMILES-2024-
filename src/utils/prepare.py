@@ -31,7 +31,11 @@ def prepare_retriever_configs(base_dir: str, benchmarks_info: dict, retriever_pa
     return benchmarks_config, banchmarks_path
 
 def prepare_reader_configs(reader_params: dict) -> tuple:
-    hardw_c = LLM_Hardw_Conf()
-    hyperp_c = LLM_Hyper_Conf(**reader_params)
+    hardw_c = LLM_Hardw_Conf(system_prompt=reader_params['system_prompt'], assistant_prompt=reader_params['assistant_prompt'])
+
+    hyperp = reader_params.copy()
+    del hyperp['system_prompt']
+    del hyperp['assistant_prompt']
+    hyperp_c = LLM_Hyper_Conf(**hyperp)
 
     return hardw_c, hyperp_c

@@ -46,7 +46,8 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
                        metrics: RetrieverMetrics):
 
     scores = {}
-    cache = {}
+    cache_ids = {}
+    cache_texts = {}
     for _, name in enumerate(benchmarks_df.keys()):
         print(name)
 
@@ -58,13 +59,14 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
             'Recall': [], 'Precision': [],
             'F1': [] 
         }
-        cache[name] = []
+        cache_ids[name] = []
+        cache_texts[name] = []
 
         process = tqdm(range(benchmarks_df[name].shape[0])) 
         show_step = 500
         for i in process:
-            output = RETRIEVER.invoke(benchmarks_df[name]['question'][i])
-            predicted_chunk_ids = list(map(lambda item: item[2]['chunk_id'], output))
+            predicted_chunks = RETRIEVER.invoke(benchmarks_df[name]['question'][i])
+            predicted_chunk_ids = list(map(lambda item: item[2]['chunk_id'], predicted_chunks))
             target_chunk_ids = benchmarks_df[name]['chunk_ids'][i]
 
             scores[name]['MRR'].append(metrics.reciprocal_rank(predicted_chunk_ids, target_chunk_ids))
@@ -75,7 +77,8 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
             f1_score = metrics.f1_score(predicted_chunk_ids, target_chunk_ids, k=TOPK_THRESHOLD)
             scores[name]['F1'].append(0 if np.isnan(f1_score) else f1_score)
 
-            cache[name].append(predicted_chunk_ids)
+            cache_ids[name].append(predicted_chunk_ids)
+            cache_texts[name].append(predicted_chunks)
 
             if i % show_step == 0:
                 process.set_postfix({name: np.median(scores) for name, scores in scores[name].items()})
@@ -83,4 +86,4 @@ def evaluate_retriever(benchmarks_df: dict, retrievers_config: dict,
         scores[name] = {name: np.median(scores) for name, scores in scores[name].items()}
         process.set_postfix(scores[name])
 
-    return scores, cache
+    return scores, cache_ids, cache_texts
