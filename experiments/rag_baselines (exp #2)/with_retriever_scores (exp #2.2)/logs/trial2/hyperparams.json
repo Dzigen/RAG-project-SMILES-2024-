@@ -1,0 +1,70 @@
+{
+ "info": {
+  "mtssquad": {
+   "db": "v2",
+   "table": "v1"
+  }
+ },
+ "benchmark_sizes": 500,
+ "reader_params": {
+  "prompts": {
+   "assistant": "Отвечай на вопросы, используя информацию из текстов в списке ниже. Каждому тексту в начале в квадратных скобках поставлена в соответствие вещественная оценка его семантической близости к вопросу: в диапозоне от 0.0 (высокая близость) до 1.0 (низкая близость). Используй эту информацию. Выбирай тексты c достаточно высокими оценками близости для генерации ответа на их основе. Если на основании указанных оценок близости ты не уверена в релевантности данных текстов по отношению к заданному вопросу, то сгенерируй следующий ответ: \"У меня нет ответа на ваш вопрос.\".",
+   "system": "Ты вопросно-ответная система. Все ответы генерируй на русском языке. По вопросам отвечай кратко, чётко и конкретно. Не генерируй излишнюю информацию."
+  },
+  "gen": {
+   "max_new_tokens": 512,
+   "eos_token_id": 79097
+  },
+  "data_operate": {
+   "batch_size": 1
+  }
+ },
+ "reader_scores": {
+  "mtssquad": {
+   "BLEU2": 0.27924,
+   "BLEU1": 0.34011,
+   "ExactMatch": 0.01905,
+   "METEOR": 0.51814,
+   "BertScore": {
+    "precision": 0.3656,
+    "recall": 0.3679,
+    "f1": 0.3657,
+    "hash": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/ru_electra_medium_LNone_no-idf"
+   },
+   "StubScore": 0.4375,
+   "elapsed_time_sec": 1746.571
+  }
+ },
+ "retriever_params": {
+  "model_path": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/intfloat/multilingual-e5-small",
+  "densedb_kwargs": {
+   "metadata": {
+    "hnsw:space": "ip"
+   }
+  },
+  "model_kwargs": {
+   "device": "cuda"
+  },
+  "encode_kwargs": {
+   "normalize_embeddings": true,
+   "prompt": "query: "
+  },
+  "params": {
+   "fetch_k": 50,
+   "threshold": 0.23,
+   "max_k": 3
+  }
+ },
+ "retriever_scores": {
+  "mtssquad": {
+   "MRR": 0.77967,
+   "mAP": 0.77967,
+   "Recall": 0.84,
+   "Precision": 0.28,
+   "F1": 0.42,
+   "NoRelContextScore": 420,
+   "elapsed_time_sec": 8.006
+  }
+ },
+ "additional_params": null
+}

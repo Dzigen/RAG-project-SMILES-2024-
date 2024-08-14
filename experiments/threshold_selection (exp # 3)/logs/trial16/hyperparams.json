@@ -1,0 +1,43 @@
+{
+ "info": {
+  "mtssquad": {
+   "db": "v1",
+   "table": "v1"
+  }
+ },
+ "retriever_params": {
+  "model_path": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/intfloat/multilingual-e5-small",
+  "densedb_kwargs": {
+   "metadata": {
+    "hnsw:space": "l2"
+   },
+   "name": "mtssquad"
+  },
+  "model_kwargs": {
+   "device": "cuda"
+  },
+  "encode_kwargs": {
+   "normalize_embeddings": false,
+   "prompt": "query: "
+  },
+  "params": {
+   "fetch_k": 50,
+   "threshold": 10.0,
+   "max_k": 50
+  }
+ },
+ "benchmarks_maxsize": 500,
+ "retriever_scores": {
+  "mtssquad": {
+   "MRR": 0.78626,
+   "mAP": 0.78626,
+   "Recall": 0.94,
+   "Precision": 0.0188,
+   "F1": 0.03686,
+   "elapsed_time_sec": 7.859
+  }
+ },
+ "additional_params": {
+  "topk_score_list": 50
+ }
+}

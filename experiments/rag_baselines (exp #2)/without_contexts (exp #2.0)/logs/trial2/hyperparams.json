@@ -1,0 +1,38 @@
+{
+ "info": {
+  "mtssquad": {
+   "table": "v1"
+  }
+ },
+ "benchmark_sizes": 500,
+ "reader_params": {
+  "prompts": {
+   "assistant": "Отвечай на вопросы, используя информацию из текстов в списке ниже. Если ты не уверена в релевантности данных текстов по отношению к заданному вопросу, то сгенерируй следующий ответ: \"У меня нет ответа на ваш вопрос.\".",
+   "system": "Ты вопросно-ответная система. Все ответы генерируй на русском языке. По вопросам отвечай кратко, чётко и конкретно. Не генерируй излишнюю информацию."
+  },
+  "gen": {
+   "max_new_tokens": 512,
+   "eos_token_id": 79097
+  },
+  "data_operate": {
+   "batch_size": 5
+  }
+ },
+ "reader_scores": {
+  "mtssquad": {
+   "BLEU2": 0.1908,
+   "BLEU1": 0.26754,
+   "ExactMatch": 0.002,
+   "METEOR": 0.37203,
+   "BertScore": {
+    "precision": 0.36895,
+    "recall": 0.37345,
+    "f1": 0.37055,
+    "hash": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/ru_electra_medium_LNone_no-idf"
+   },
+   "StubScore": NaN,
+   "elapsed_time_sec": 487.471
+  }
+ },
+ "additional_params": null
+}
