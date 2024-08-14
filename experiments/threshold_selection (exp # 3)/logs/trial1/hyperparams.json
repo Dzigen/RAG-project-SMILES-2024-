@@ -1,0 +1,39 @@
+{
+ "info": {
+  "mtssquad": {
+   "db": "v2",
+   "table": "v1"
+  }
+ },
+ "retriever_params": {
+  "model_path": "/trinity/home/team06/workspace/mikhail_workspace/RAG-project-SMILES-2024-/models/intfloat/multilingual-e5-small",
+  "densedb_kwargs": {
+   "metadata": {
+    "hnsw:space": "ip"
+   },
+   "name": "mtssquad"
+  },
+  "model_kwargs": {
+   "device": "cuda"
+  },
+  "encode_kwargs": {
+   "normalize_embeddings": true,
+   "prompt": "query: "
+  },
+  "params": {
+   "fetch_k": 50,
+   "threshold": -1,
+   "max_k": 3
+  }
+ },
+ "benchmarks_maxsize": 10000,
+ "retriever_scores": {
+  "mtssquad": {
+   "MRR": 0.809233217,
+   "mAP": 0.809233217,
+   "Recall": 0.8746,
+   "Precision": 0.29153041800000007,
+   "F1": 0.43729672024180055
+  }
+ }
+}

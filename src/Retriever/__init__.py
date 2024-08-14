@@ -1,2 +1,3 @@
 from .ThresholdRetriever import ThresholdRetriever
-from .utils import ThresholdRetrieverConfig
+from .RerankRetriever import RerankRetriever
+from .utils import ThresholdRetrieverConfig, RerankRetrieverConfig

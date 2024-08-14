@@ -1,0 +1,73 @@
+{
+ "info": {
+  "mtssquad": {
+   "db": "v3",
+   "table": "v2"
+  }
+ },
+ "benchmark_sizes": 500,
+ "reader_params": {
+  "prompts": {
+   "assistant": "Отвечай на вопросы, используя информацию из текстов в списке ниже. Каждому тексту в начале в квадратных скобках поставлена в соответствие вещественная оценка его синтаксической сложности: в диапазоне от 0.0 (низкая сложность) до 1.0 (высокая сложность). Учитывай эти данные. Тексты с более низкой оценкой содержат меньше дополнительной информации и из них легче извлечь релевантную информацию, если такая есть. Если оценка кажется тебе слишком высокой, а другие тексты нерелевантны запросу,  то сгенерируй следующий ответ: \"У меня нет ответа на ваш вопрос.\".",
+   "system": "Ты вопросно-ответная система. Все ответы генерируй на русском языке. По вопросам отвечай кратко, чётко и конкретно. Не генерируй излишнюю информацию."
+  },
+  "gen": {
+   "max_new_tokens": 512,
+   "eos_token_id": 79097
+  },
+  "data_operate": {
+   "batch_size": 1
+  }
+ },
+ "reader_scores": {
+  "mtssquad": {
+   "BLEU2": 0.34903,
+   "BLEU1": 0.42191,
+   "ExactMatch": 0.03571,
+   "METEOR": 0.60774,
+   "BertScore": {
+    "precision": 0.37869,
+    "recall": 0.38708,
+    "f1": 0.38186,
+    "hash": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/ru_electra_medium_LNone_no-idf"
+   },
+   "StubScore": 0.2,
+   "elapsed_time_sec": 1710.923
+  }
+ },
+ "retriever_params": {
+  "model_path": "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/intfloat/multilingual-e5-small",
+  "densedb_kwargs": {
+   "metadata": {
+    "hnsw:space": "ip"
+   },
+   "name": "mtssquad"
+  },
+  "model_kwargs": {
+   "device": "cuda"
+  },
+  "encode_kwargs": {
+   "normalize_embeddings": true,
+   "prompt": "query: "
+  },
+  "params": {
+   "fetch_k": 50,
+   "threshold": 0.23,
+   "max_k": 3
+  }
+ },
+ "retriever_scores": {
+  "mtssquad": {
+   "MRR": 0.77967,
+   "mAP": 0.77967,
+   "Recall": 0.84,
+   "Precision": 0.28,
+   "F1": 0.42,
+   "NoRelContextScore": 420,
+   "elapsed_time_sec": 11.833
+  }
+ },
+ "additional_params": {
+  "topk_score_list": 3
+ }
+}

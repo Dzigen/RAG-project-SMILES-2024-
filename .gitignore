@@ -5,6 +5,8 @@ __pycache__/
 
 data/
 .nlp_venv
+models/
+archives/
 
 # C extensions
 *.so

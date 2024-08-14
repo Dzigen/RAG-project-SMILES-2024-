@@ -13,10 +13,15 @@
 
 from torchmetrics.text.rouge import ROUGEScore
 from torchmetrics.text import BLEUScore
+from evaluate import load
 import evaluate
 import numpy as np
 from typing import List
 from tqdm import tqdm
+from torchmetrics.text.bert import BERTScore
+
+from src.Reader import LLM_Model
+from src.Scorer import LLM_SimilarityScorer, SimilarityScorerConfig
 
 #
 class RetrieverMetrics:
@@ -59,7 +64,7 @@ class RetrieverMetrics:
     
 # 
 class ReaderMetrics:
-    def __init__(self, base_dir):
+    def __init__(self, base_dir, model_path, sim_score_config: SimilarityScorerConfig, reader: LLM_Model):
         self.rouge_obj = ROUGEScore()
         self.bleu1_obj = BLEUScore(n_gram=1)
         self.bleu2_obj = BLEUScore(n_gram=2)
@@ -67,35 +72,51 @@ class ReaderMetrics:
         self.meteor_obj = evaluate.load(f"{base_dir}/src/utils/metrics/meteor")
         print("Loading ExactMatch")
         self.em_obj = evaluate.load(f"{base_dir}/src/utils/metrics/exact_match")
-
-    def bertscore(self, predicted: List[str], targets: List[str]):
-        pass
-
-    def rougel(self, predicted: List[str], targets: List[str]):
-        accum = []
-        for i in range(len(targets)):
-            accum.append(self.rouge_obj(predicted[i], targets[i])['rougeL_fmeasure'])
-        return round(np.mean(accum),5)
-
-    def bleu1(self, predicted: List[str], targets: List[str]):
-        accum = []
-        for i in range(len(targets)):
-            accum.append(self.bleu1_obj([predicted[i]], [[targets[i]]]))
-        return round(np.mean(accum),5)
-
-    def bleu2(self, predicted: List[str], targets: List[str]):
-        accum = []
-        for i in range(len(targets)):
-            accum.append(self.bleu2_obj([predicted[i]], [[targets[i]]]))
-        return round(np.mean(accum),5)
-
-    def meteor(self, predicted: List[str], targets: List[str]):
-        accum = []
-        for i in range(len(targets)):
-            accum.append(
-                self.meteor_obj.compute(
-                    predictions=[predicted[i]], references=[targets[i]])['meteor'])
-        return round(np.mean(accum),5)
+        self.bertscore_obj = BERTScore(f"{base_dir}/models/{model_path}", return_hash=True)
+        self.llmsimscore_obj = LLM_SimilarityScorer(sim_score_config, reader)
     
+    def bertscore(self, predicted: List[str], targets: List[str]):
+        output = self.bertscore_obj(predicted, targets)
+        output['precision'] = round(float(output['precision'].mean()), 5)
+        output['recall'] = round(float(output['recall'].mean()), 5)
+        output['f1'] = round(float(output['f1'].mean()), 5)
+        
+        return output
+    
+    def rougel(self, predicted: List[str], targets: List[str]):
+        return [self.rouge_obj(
+            predicted[i], targets[i])['rougeL_fmeasure'] 
+                 for i in range(len(targets))]
+        
+    def bleu1(self, predicted: List[str], targets: List[str]):
+        return [self.bleu1_obj(
+            [predicted[i]], [[targets[i]]])
+                 for i in range(len(targets))]
+        
+    def bleu2(self, predicted: List[str], targets: List[str]):
+        return [self.bleu2_obj(
+            [predicted[i]], [[targets[i]]]) 
+                 for i in range(len(targets))]
+        
+    def meteor(self, predicted: List[str], targets: List[str]):
+        return [self.meteor_obj.compute(
+            predictions=[predicted[i]], references=[targets[i]])['meteor'] 
+                 for i in range(len(targets))]
+        
     def exact_match(self, predicted: List[str], targets: List[str]):
-        return round(self.em_obj.compute(predictions=predicted, references=targets)["exact_match"], 2)
+        return [self.em_obj.compute(
+            predictions=[predicted[i]], references=[targets[i]])["exact_match"]
+                for i in range(len(targets))]
+
+    def llm_sim_score(self, texts1: List[str], texts2: List[str]):
+        return self.llmsimscore_obj.predict(texts1, texts2)
+
+
+
+
+
+
+
+
+
+
