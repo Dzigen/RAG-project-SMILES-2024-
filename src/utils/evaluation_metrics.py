@@ -19,6 +19,7 @@ import numpy as np
 from typing import List
 from tqdm import tqdm
 from torchmetrics.text.bert import BERTScore
+from Levenshtein import distance as levenshtain_distance
 
 from src.Reader import LLM_Model
 from src.Scorer import LLM_SimilarityScorer, SimilarityScorerConfig
@@ -64,7 +65,7 @@ class RetrieverMetrics:
     
 # 
 class ReaderMetrics:
-    def __init__(self, base_dir, model_path, sim_score_config: SimilarityScorerConfig, reader: LLM_Model):
+    def __init__(self, base_dir, model_path, sim_score_config: SimilarityScorerConfig = None, reader: LLM_Model = None):
         self.rouge_obj = ROUGEScore()
         self.bleu1_obj = BLEUScore(n_gram=1)
         self.bleu2_obj = BLEUScore(n_gram=2)
@@ -73,7 +74,8 @@ class ReaderMetrics:
         print("Loading ExactMatch")
         self.em_obj = evaluate.load(f"{base_dir}/src/utils/metrics/exact_match")
         self.bertscore_obj = BERTScore(f"{base_dir}/models/{model_path}", return_hash=True)
-        self.llmsimscore_obj = LLM_SimilarityScorer(sim_score_config, reader)
+        if sim_score_config is not None:
+            self.llmsimscore_obj = LLM_SimilarityScorer(sim_score_config, reader)
     
     def bertscore(self, predicted: List[str], targets: List[str]):
         output = self.bertscore_obj(predicted, targets)
@@ -110,6 +112,9 @@ class ReaderMetrics:
 
     def llm_sim_score(self, texts1: List[str], texts2: List[str]):
         return self.llmsimscore_obj.predict(texts1, texts2)
+    
+    def levenshtain_score(self, predicted: List[str], targets: List[str]):
+        return list(map(lambda pair: levenshtain_distance(pair[1], pair[0]), zip(predicted, targets)))
 
 
 

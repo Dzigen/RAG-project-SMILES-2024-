@@ -28,5 +28,5 @@ class ThresholdRetrieverConfig:
 
 @dataclass
 class RerankRetrieverConfig:
-    stage1_retriever_config: ThresholdRetrieverConfig = ThresholdRetrieverConfig()
-    scorer_config: UncertaintyScorerConfig = UncertaintyScorerConfig()
+    stage1_retriever_config: ThresholdRetrieverConfig = field(default_factory=lambda: ThresholdRetrieverConfig())
+    scorer_config: UncertaintyScorerConfig = field(default_factory=lambda: UncertaintyScorerConfig())

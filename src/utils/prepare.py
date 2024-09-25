@@ -8,9 +8,11 @@ from src.Reader.utils import LLM_Config, LLM_PromptsConfig, LLM_DataOperateConfi
 def load_benchmarks_df(benchmarks_path: dict, benchmarks_maxsize: int) -> dict:  
     benchmarks_df = {}
     for name, _ in benchmarks_path.items():
-        benchmarks_df[name] = pd.read_csv(benchmarks_path[name]['table'], sep=';').iloc[:benchmarks_maxsize,:]
-        benchmarks_df[name]['chunk_ids'] = benchmarks_df[name]['chunk_ids'].map(lambda v: ast.literal_eval(v)) 
-        benchmarks_df[name]['contexts'] = benchmarks_df[name]['contexts'].map(lambda v: ast.literal_eval(v)) 
+        benchmarks_df[name] = pd.read_csv(benchmarks_path[name]['table'], sep=';')
+        if benchmarks_maxsize > 0:
+            benchmarks_df[name] = benchmarks_df[name].iloc[:benchmarks_maxsize,:]
+
+        benchmarks_df[name]['chunk_ids'] = benchmarks_df[name]['chunk_ids'].map(lambda v: ast.literal_eval(v))
 
     return benchmarks_df
 
