@@ -1,0 +1,23 @@
+{
+ "version": "3.1.1",
+ "num_samples": 2000,
+ "num_contexts": 5,
+ "model": "../../../../models/Undi95/Meta-Llama-3-8B-Instruct-hf",
+ "system_prompt": "You are an AI assistant who helps solve user issues.",
+ "item_format": "- {document}",
+ "user_prompt": "Answer the question using the available information from the texts in the list below. If there are no texts in the list that are relevant enough to generate answer based on them, then generate the following text: \"I do not have an answer to your question\". Generate answer only in English. Do not duplicate the question in the answer. Generate only the answer to the specified question. Answer need to be short. Do not generate anything extra.",
+ "prompt_format": "{user_p}\n\nAvailable information:\n{cnt_list}\n\nQuestion:\n{q}\n\nAnswer:\n",
+ "scores": {
+  "rel": 1.0,
+  "unrel": 0.0
+ },
+ "gen_strat": {
+  "max_new_tokens": 1024,
+  "do_sample": false,
+  "num_beams": 1
+ },
+ "stub_answer": "I do not have an answer to your question",
+ "calculate_entropy": true,
+ "revert": false,
+ "centered": true
+}

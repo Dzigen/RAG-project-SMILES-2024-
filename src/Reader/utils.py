@@ -21,9 +21,9 @@ class LLM_DataOperateConfig:
 
 @dataclass
 class LLM_Config:
-    prompts: LLM_PromptsConfig = LLM_PromptsConfig() 
-    init: LLM_InitConfig = LLM_InitConfig()
-    data_operate: LLM_DataOperateConfig = LLM_DataOperateConfig() 
+    prompts: LLM_PromptsConfig = field(default_factory=lambda: LLM_PromptsConfig() )
+    init: LLM_InitConfig = field(default_factory=lambda: LLM_InitConfig())
+    data_operate: LLM_DataOperateConfig = field(default_factory=lambda: LLM_DataOperateConfig())
     gen: dict = field(default_factory=lambda: {'max_new_tokens': 512, 'num_beams': 5, 'eos_token_id': 79097, 'early_stopping': True})
     
 

@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "num_samples": 2000,
+ "num_contexts": 1,
+ "system_prompt": "You are an AI assistant who helps solve user issues.",
+ "item_format": "- {document}",
+ "user_prompt": "Answer the question using the available information from the texts in the list below. Generate answer only in English. Do not duplicate the question in the answer. Generate only the answer to the specified question. Answer need to be short. Do not generate anything extra.",
+ "prompt_format": "{user_p}\n\nAvailable information:\n{cnt_list}\n\nQuestion:\n{q}\n\nAnswer:\n",
+ "scores": {
+  "rel": 1.0,
+  "unrel": 0.0
+ },
+ "gen_strat": {
+  "max_new_tokens": 1024
+ },
+ "stub_answer": "I do not have an answer to your question"
+}

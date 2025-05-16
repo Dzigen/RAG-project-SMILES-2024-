@@ -1,0 +1,22 @@
+{
+ "version": "3.1.1",
+ "num_samples": 2000,
+ "num_contexts": 5,
+ "model": "/home/jovyan/work/RAG-project-SMILES-2024-/models/Undi95/Meta-Llama-3-8B-Instruct-hf",
+ "bp": "hi",
+ "scores": {
+  "rel": 1.0,
+  "unrel": 0.0
+ },
+ "gen_strat": {
+  "max_new_tokens": 1024,
+  "do_sample": false,
+  "num_beams": 1
+ },
+ "calculate_entropy": true,
+ "revert": false,
+ "centered": true,
+ "LOGS_SAVE_DIR": "/home/jovyan/work/RAG-project-SMILES-2024-/experiments/reader_context_noising_with_scores (exp #5)/with_relevant_contexts_without_score (exp #5.4)/mlqa/hi/logs",
+ "QA_DATASET_PATH": "/home/jovyan/work/RAG-project-SMILES-2024-/data/mlqa/hi/qa_dataset.csv",
+ "CONTEXTS_DATASET_PATH": "/home/jovyan/work/RAG-project-SMILES-2024-/data/mlqa/hi/contexts.csv"
+}

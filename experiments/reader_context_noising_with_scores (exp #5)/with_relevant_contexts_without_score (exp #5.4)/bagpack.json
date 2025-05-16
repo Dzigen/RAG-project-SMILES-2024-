@@ -1,0 +1,37 @@
+{
+    "en": {
+        "system_prompt": "You are an AI assistant who helps solve user issues.",
+        "item_format": "- {document}",
+        "user_prompt": "Answer the question using the available information from the texts in the list below. If there are no texts in the list that are relevant enough to generate answer based on them, then generate the following text: 'I do not have an answer to your question'. Generate answer only in English. Do not duplicate the question in the answer. Generate only the answer to the specified question. Answer need to be short. Do not generate anything extra.",
+        "prompt_format": "{user_p}\n\nAvailable information:\n{cnt_list}\n\nQuestion:\n{q}\n\nAnswer:\n",
+        "stub_answer": "I do not have an answer to your question"
+    },
+    "ru": {
+        "system_prompt": "Ты — AI-помощник, который помогает решать возникающие проблемы.",
+        "item_format": "- {document}",
+        "user_prompt": "Ответь на вопрос, используя доступную информацию из текстов в списке ниже. Если в списке нет текстов, достаточно релевантных для генерации ответа на их основе, то сгенерируй следующий текст: 'У меня нет ответа на ваш вопрос'. Сгенерируй ответ на русском языке. Не дублируй вопрос в ответе. Сгенерируй только ответ на указанный вопрос. Ответ должен быть кратким. Не генерируй ничего лишнего.",
+        "prompt_format": "{user_p}\n\nДоступная информация:\n{cnt_list}\n\nВопрос:\n{q}\n\nОтвет:\n",
+        "stub_answer": "У меня нет ответа на ваш вопрос"
+    },
+    "de": {
+        "system_prompt": "Sie sind ein KI-Assistent, der bei der Lösung auftretender Probleme hilft.",
+        "item_format": "- {document}",
+        "user_prompt": "Beantworten Sie die Frage mithilfe der Informationen aus den Texten in der folgenden Liste. Wenn in der Liste keine Texte vorhanden sind, die relevant genug sind, um darauf basierend eine Antwort zu generieren, dann generieren Sie den folgenden Text: „Ich habe keine Antwort auf Ihre Frage.“ Generieren Sie eine Antwort auf Deutsch. Stellen Sie in Ihrer Antwort keine doppelte Frage. Generieren Sie nur die Antwort auf die gestellte Frage. Die Antwort sollte kurz sein. Erzeugen Sie nichts zusätzlich.",
+        "prompt_format": "{user_p}\n\nVerfügbare Informationen:\n{cnt_list}\n\nFrage:\n{q}\n\nAntwort:\n",
+        "stub_answer": "Ich habe keine Antwort auf deine Frage."
+    },
+    "hi": {
+        "system_prompt": "आप एक एआई सहायक हैं जो आने वाली समस्याओं को हल करने में मदद करते हैं।",
+        "item_format": "- {document}",
+        "user_prompt": "नीचे दी गई सूची में उपलब्ध पाठ्य सामग्री का उपयोग करके प्रश्न का उत्तर दीजिए। यदि सूची में कोई भी पाठ इतना प्रासंगिक नहीं है कि उसके आधार पर उत्तर तैयार किया जा सके, तो निम्नलिखित पाठ तैयार करें: 'मेरे पास आपके प्रश्न का उत्तर नहीं है।' हिंदी भाषा में उत्तर तैयार करें. अपने उत्तर में प्रश्न की नकल न करें। केवल दिए गए प्रश्न का उत्तर ही तैयार करें। उत्तर संक्षिप्त होना चाहिए. कुछ भी अतिरिक्त उत्पन्न न करें.",
+        "prompt_format": "{user_p}\n\nउपलब्ध जानकारी:\n{cnt_list}\n\nसवाल:\n{q}\n\nउत्तर:\n",
+        "stub_answer": "मेरे पास आपके प्रश्न का उत्तर नहीं है।"
+    },
+    "vi": {
+        "system_prompt": "Bạn là trợ lý AI giúp giải quyết các vấn đề phát sinh.",
+        "item_format": "- {document}",
+        "user_prompt": "Trả lời câu hỏi bằng cách sử dụng thông tin có sẵn trong các văn bản trong danh sách dưới đây. Nếu không có văn bản nào trong danh sách đủ liên quan để tạo câu trả lời dựa trên chúng, hãy tạo văn bản sau: 'Tôi không có câu trả lời cho câu hỏi của bạn.' Tạo câu trả lời bằng tiếng Việt. Đừng lặp lại câu hỏi trong câu trả lời của bạn. Chỉ tạo ra câu trả lời cho câu hỏi đã cho. Câu trả lời phải ngắn gọn. Đừng tạo ra bất cứ thứ gì thêm nữa.",
+        "prompt_format": "{user_p}\n\nThông tin có sẵn:\n{cnt_list}\n\nCâu hỏi:\n{q}\n\nTrả lời:\n",
+        "stub_answer": "Tôi không có câu trả lời cho câu hỏi của bạn."
+    }
+}

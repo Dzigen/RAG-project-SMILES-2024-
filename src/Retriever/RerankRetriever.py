@@ -25,4 +25,3 @@ class RerankRetriever:
         
         return stage2_relevant_docs
         
-        

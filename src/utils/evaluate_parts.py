@@ -19,6 +19,7 @@ def evaluate_reader(benchmarks_df: dict, reader: LLM_Model,
             'BLEU2': [], 'BLEU1': [],
             'ExactMatch': [],'METEOR': [],
             'BertScore': [],
+            'Levenshtain': [],
             'StubScore': [] # отношение числа успешно сгенерированных заглушек к их ожидаемому числу
             }
         cache[name] = []
@@ -38,6 +39,7 @@ def evaluate_reader(benchmarks_df: dict, reader: LLM_Model,
                 scores[name]['BLEU2'] += metrics.bleu2([predicted_answer], [target_answer])
                 scores[name]['ExactMatch'] += metrics.exact_match([predicted_answer], [target_answer])
                 scores[name]['METEOR'] += metrics.meteor([predicted_answer], [target_answer])
+                scores[name]['Levenshtain'] += metrics.levenshtain_score([predicted_answer], [target_answer])
                 
                 tmp_target_answers.append(target_answer)
                 cache[name].append(predicted_answer)
@@ -104,6 +106,7 @@ def evaluate_retriever(benchmarks_df: dict, retrievers: dict, metrics: Retriever
 
             cache_ids[name].append(predicted_chunk_ids)
             cache_docs[name].append(predicted_chunks)
+            #print(target_chunk_ids)
             cache_relevant_flags[name].append(target_chunk_ids[0] in predicted_chunk_ids)
 
             if i % show_step == 0:

@@ -1,0 +1,19 @@
+{
+ "version": 5,
+ "num_samples": 2000,
+ "num_contexts": 5,
+ "system_prompt": "You are an AI assistant who helps solve user issues.",
+ "item_format": "- [{score}] {document}",
+ "user_prompt": "Answer the question using the available information from the texts in the list below. Each text has a corresponding real-value score of its relevance to the question in square brackets at the beginning. Scores are ranged from 0.0 (the text is not suitable for generating an answer based on it) to 1.0 (the text is suitable for generating an answer based on it). Use this information. Choose texts with high enough relevance scores. If, based on the specified scores, there are no texts in the list that are relevant enough to generate answer based on them, then generate the following answer: \"I do not have an answer to your question\". Generate answer in Russian. Do not duplicate the question in the answer. Generate only the answer to the specified question. Answer need to be short. Do not generate anything extra.",
+ "prompt_format": "{user_p}\n\nAvailable information:\n{cnt_list}\n\nQuestion:\n{q}\n\nAnswer:\n",
+ "scores": {
+  "rel": 1.0,
+  "unrel": 0.0
+ },
+ "gen_strat": {
+  "max_new_tokens": 1024
+ },
+ "stub_answer": "I do not have an answer to your question",
+ "revert": true,
+ "centered": false
+}

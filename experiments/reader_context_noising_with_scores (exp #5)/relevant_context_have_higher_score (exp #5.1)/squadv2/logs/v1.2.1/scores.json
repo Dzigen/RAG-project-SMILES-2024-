@@ -1,0 +1,31 @@
+{
+ "target_answers": {
+  "BLEU2": 0.13293,
+  "BLEU1": 0.31047,
+  "ExactMatch": 0.4195,
+  "METEOR": 0.57172,
+  "BertScore": {
+   "precision": 0.62478,
+   "recall": 0.65224,
+   "f1": 0.63603,
+   "hash": "../../../../models/en_electra_base_LNone_no-idf"
+  },
+  "Levenshtain": 43.9535,
+  "ROUGEL": 0.60395
+ },
+ "stub_answers": {
+  "BLEU2": 0.04351,
+  "BLEU1": 0.05557,
+  "ExactMatch": 0.0495,
+  "METEOR": 0.06515,
+  "BertScore": {
+   "precision": 0.68538,
+   "recall": 0.67925,
+   "f1": 0.68131,
+   "hash": "../../../../models/en_electra_base_LNone_no-idf"
+  },
+  "Levenshtain": 57.85,
+  "ROUGEL": 0.06487,
+  "elapsed_time_sec": 330.34
+ }
+}
