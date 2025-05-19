@@ -11,16 +11,16 @@
   "max_new_tokens": 1024
  },
  "stub_answer": "I do not have an answer to your question",
- "scores_dataset_path": "/home/jovyan/work/alexander_workspace/exp/cosine_scores_squad2.csv",
+ "scores_dataset_path": "exp/cosine_scores_squad2.csv",
  "vdb_context_info": {
-  "path": "/home/jovyan/work/RAG-project-SMILES-2024-/data/squadv2/chroma/dbs/v3",
+  "path": "squadv2/chroma/dbs/v3",
   "db": {
    "db": "squadv2",
    "table": "contexts"
   }
  },
  "vdb_query_info": {
-  "path": "/home/jovyan/work/RAG-project-SMILES-2024-/data/squadv2/chroma/dbs/v3",
+  "path": "squadv2/chroma/dbs/v3",
   "db": {
    "db": "squadv2",
    "table": "questions"

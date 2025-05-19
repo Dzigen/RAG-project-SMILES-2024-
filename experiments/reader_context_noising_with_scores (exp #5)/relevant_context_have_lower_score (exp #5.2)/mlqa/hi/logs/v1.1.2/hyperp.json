@@ -2,7 +2,7 @@
  "version": "1.1.2",
  "num_samples": 2000,
  "num_contexts": 5,
- "model": "/home/jovyan/work/RAG-project-SMILES-2024-/models/Qwen/Qwen2.5-7B-Instruct",
+ "model": "/home/jovyan/work/repo_name/models/Qwen/Qwen2.5-7B-Instruct",
  "bp": "hi",
  "scores": {
   "rel": 1.0,
@@ -16,7 +16,7 @@
  "calculate_entropy": true,
  "revert": false,
  "centered": false,
- "LOGS_SAVE_DIR": "/home/jovyan/work/RAG-project-SMILES-2024-/experiments/reader_context_noising_with_scores (exp #5)/relevant_context_have_lower_score (exp #5.2)/mlqa/hi/logs",
- "QA_DATASET_PATH": "/home/jovyan/work/RAG-project-SMILES-2024-/data/mlqa/hi/qa_dataset.csv",
- "CONTEXTS_DATASET_PATH": "/home/jovyan/work/RAG-project-SMILES-2024-/data/mlqa/hi/contexts.csv"
+ "LOGS_SAVE_DIR": "/home/jovyan/work/repo_name/experiments/reader_context_noising_with_scores (exp #5)/relevant_context_have_lower_score (exp #5.2)/mlqa/hi/logs",
+ "QA_DATASET_PATH": "/home/jovyan/work/repo_name/data/mlqa/hi/qa_dataset.csv",
+ "CONTEXTS_DATASET_PATH": "/home/jovyan/work/repo_name/data/mlqa/hi/contexts.csv"
 }
