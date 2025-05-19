@@ -9,7 +9,7 @@ class LLM_PromptsConfig:
 
 @dataclass
 class LLM_InitConfig:
-    pretrained_model_name_or_path: str = '/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/vikhr_7B'
+    pretrained_model_name_or_path: str = '../../models/vikhr_7B'
     device_map: str = "cuda"
     torch_dtype: float = torch.bfloat16
     attn_implementation: str = "flash_attention_2"

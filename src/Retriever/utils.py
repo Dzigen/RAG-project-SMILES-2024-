@@ -17,8 +17,8 @@ from src.Scorer import UncertaintyScorerConfig
 
 @dataclass
 class ThresholdRetrieverConfig:
-    model_path: str = "/trinity/home/team06/workspace/mikhail_workspace/rag_project/models/intfloat/multilingual-e5-small"
-    densedb_path: str = "/trinity/home/team06/workspace/mikhail_workspace/rag_project/data/mtssquad/dbs/v2/densedb"
+    model_path: str = "../../models/intfloat/multilingual-e5-small"
+    densedb_path: str = "../../data/mtssquad/dbs/v2/densedb"
     densedb_kwargs: Dict[str, object] = field(default_factory=lambda: {'metadata': {"hnsw:space": "ip"}, 'name': 'mtssquad'})
 
     encode_kwargs: Dict[str, object] = field(default_factory=lambda: {'normalize_embeddings': True, 'prompt': 'query: '})
