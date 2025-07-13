@@ -1,6 +1,6 @@
 import sys
 
-BASE_DIR = "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-"
+BASE_DIR = "../../../"
 sys.path.insert(0, BASE_DIR)
 
 import pandas as pd

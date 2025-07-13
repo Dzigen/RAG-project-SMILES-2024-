@@ -1,9 +1,5 @@
 import sys
-<<<<<<< HEAD
-BASE_DIR = "/home/jovyan/work/repo_name"
-=======
-BASE_DIR = "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-"
->>>>>>> 1088bca (add experiments logs)
+BASE_DIR = "../../../"
 sys.path.insert(0, BASE_DIR)
 
 import pandas as pd

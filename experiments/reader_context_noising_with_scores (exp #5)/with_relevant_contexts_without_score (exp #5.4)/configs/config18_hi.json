@@ -1,5 +1,5 @@
 {
- "version": "1.1.5",
+ "version": "3.1.5",
  "num_samples": 2000,
  "num_contexts": 5,
  "model": "../../../models/mistralai/Mistral-7B-Instruct-v0.3",
@@ -15,8 +15,8 @@
  },
  "calculate_entropy": true,
  "revert": false,
- "centered": false,
- "LOGS_SAVE_DIR": "../../../experiments/reader_context_noising_with_scores (exp #5)/relevant_context_have_higher_score (exp #5.1)/mlqa/hi/logs",
+ "centered": true,
+ "LOGS_SAVE_DIR": "../../../experiments/reader_context_noising_with_scores (exp #5)/with_relevant_contexts_without_score (exp #5.4)/mlqa/hi/logs",
  "QA_DATASET_PATH": "../../../data/mlqa/hi/qa_dataset.csv",
  "CONTEXTS_DATASET_PATH": "../../../data/mlqa/hi/contexts.csv",
  "calculate_timportance(attention)": false,

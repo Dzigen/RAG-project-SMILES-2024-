@@ -3,7 +3,7 @@
  "num_samples": 2000,
  "num_contexts": 5,
  "model": "../../../models/mistralai/Mistral-7B-Instruct-v0.3",
- "bp": "de",
+ "bp": "vi",
  "scores": {
   "rel": 1.0,
   "unrel": 0.0
@@ -16,9 +16,9 @@
  "calculate_entropy": true,
  "revert": true,
  "centered": false,
- "LOGS_SAVE_DIR": "../../../experiments/reader_context_noising_with_scores (exp #5)/with_relevant_contexts_without_score (exp #5.4)/mlqa/de/logs",
- "QA_DATASET_PATH": "../../../data/mlqa/de/qa_dataset.csv",
- "CONTEXTS_DATASET_PATH": "../../../data/mlqa/de/contexts.csv",
+ "LOGS_SAVE_DIR": "../../../experiments/reader_context_noising_with_scores (exp #5)/relevant_context_have_higher_score (exp #5.1)/mlqa/vi/logs",
+ "QA_DATASET_PATH": "../../../data/mlqa/vi/qa_dataset.csv",
+ "CONTEXTS_DATASET_PATH": "../../../data/mlqa/vi/contexts.csv",
  "calculate_timportance(attention)": false,
  "timportnace_hyperp": null
 }
