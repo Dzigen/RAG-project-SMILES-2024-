@@ -57,4 +57,4 @@ class CustomAgent:
         
         generated_text = self.tokenizer.decode(output_sequences['sequences'][0][len(input_ids[0]):], skip_special_tokens=True)
         
-        return generated_text, output_sequences, inputs
+        return generated_text, output_sequences, inputs, prompt
