@@ -19,12 +19,12 @@ class CustomAgent:
             {"role": "user","content": user_prompt}]
 
         if assistant_prompt is not None:
-            messages.insert(1, {"role": "assistant", "content": assistant_prompt})
+            messages.insert(2, {"role": "assistant", "content": assistant_prompt})
 
         prompt = self.tokenizer.apply_chat_template(
                 messages, 
                 tokenize=False, 
-                add_generation_prompt=True
+                add_generation_prompt=True if assistant_prompt is None else False
         )
 
         inputs = self.tokenizer(
@@ -44,4 +44,4 @@ class CustomAgent:
         
         generated_text = self.tokenizer.decode(output_sequences['sequences'][0][len(input_ids[0]):], skip_special_tokens=True)
         
-        return generated_text, output_sequences
+        return generated_text, output_sequences, inputs
