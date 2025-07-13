@@ -8,7 +8,7 @@ torch.cuda.empty_cache()
 
 SAVE_MODEL_PATH = "../models/mistralai/Mistral-7B-Instruct-v0.3" 
 LOAD_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"  
-#adasdasd
+
 access_token = "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"
 
 tokenizer = AutoTokenizer.from_pretrained(LOAD_MODEL, token=access_token)
