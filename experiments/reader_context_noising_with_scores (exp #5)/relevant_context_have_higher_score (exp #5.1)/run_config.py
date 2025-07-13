@@ -127,7 +127,7 @@ timportance_info = dict()
 display_iter = 100
 s_time = time()
 for i in tqdm(range(len(USER_PROMPTS))):
-    pred_answer, meta_info, inputs = agent.generate(
+    pred_answer, meta_info, inputs, _ = agent.generate(
         user_prompt=USER_PROMPTS[i], system_prompt=BAGPACK[PARAMS['bp']]['system_prompt'],
         gen_strategy=PARAMS['gen_strat'])
 
@@ -143,7 +143,7 @@ for i in tqdm(range(len(USER_PROMPTS))):
     if PARAMS['calculate_timportance(attention)']:
         agent.output_attentions = True
         tmp_assistant_prompt = pred_answer
-        _, meta_info, _ = agent.generate(
+        _, meta_info, _, _ = agent.generate(
             user_prompt=USER_PROMPTS[i], system_prompt=BAGPACK[PARAMS['bp']]['system_prompt'], 
             gen_strategy={'max_new_tokens': 1, 'do_sample': False, 'num_beams': 1}, 
             assistant_prompt=tmp_assistant_prompt)
