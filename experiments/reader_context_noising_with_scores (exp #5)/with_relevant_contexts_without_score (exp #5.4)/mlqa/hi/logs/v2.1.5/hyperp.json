@@ -1,0 +1,24 @@
+{
+ "version": "2.1.5",
+ "num_samples": 2000,
+ "num_contexts": 5,
+ "model": "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-/models/mistralai/Mistral-7B-Instruct-v0.3",
+ "bp": "hi",
+ "scores": {
+  "rel": 1.0,
+  "unrel": 0.0
+ },
+ "gen_strat": {
+  "max_new_tokens": 1024,
+  "do_sample": false,
+  "num_beams": 1
+ },
+ "calculate_entropy": true,
+ "revert": true,
+ "centered": false,
+ "LOGS_SAVE_DIR": "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-/experiments/reader_context_noising_with_scores (exp #5)/with_relevant_contexts_without_score (exp #5.4)/mlqa/hi/logs",
+ "QA_DATASET_PATH": "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-/data/mlqa/hi/qa_dataset.csv",
+ "CONTEXTS_DATASET_PATH": "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-/data/mlqa/hi/contexts.csv",
+ "calculate_timportance(attention)": false,
+ "timportnace_hyperp": null
+}

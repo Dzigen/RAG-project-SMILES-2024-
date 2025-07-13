@@ -1,5 +1,5 @@
 import sys
-BASE_DIR = "/home/jovyan/work/repo_name"
+BASE_DIR = "/home/jovyan/work/alexander_workspace/RAG-project-SMILES-2024-"
 sys.path.insert(0, BASE_DIR)
 
 import pandas as pd
@@ -23,7 +23,7 @@ random.seed(42)
 
 from src.agents.hosted import CustomAgent
 from src.utils import ReaderMetrics
-from src.utils.inference_metrics import compute_predictive_entropy
+from src.utils.inference_metrics import compute_predictive_entropy, get_timportance_info
 
 ###########################
 
@@ -34,7 +34,7 @@ PARAMS_FILE = sys.argv[1]
 with open(PARAMS_FILE) as stream:
     PARAMS = yaml.safe_load(stream)
 
-BAGPACK_FILE = f'{"/".join(PARAMS_FILE.split("/")[:-2])}/bagpack.json'
+BAGPACK_FILE = 'bagpack.json'
 with open(BAGPACK_FILE, 'r', encoding='utf-8') as fd:
     BAGPACK = json.loads(fd.read())
     
@@ -43,12 +43,15 @@ USER_PROPMTS_SAVE_NAME = 'user_prompts.json'
 PARAMS_SAVE_NAME = 'hyperp.json'
 GEN_ANSW_SAVE_NAME = 'generation_info.json'
 SCORES_SAVE_NAME = 'scores.json'
+TIMPORTANCE_SAVE_NAME = 'timportance'
+META_INFO_DIR_NAME = 'gen_metainfo'
 
 if os.path.exists(f'{PARAMS["LOGS_SAVE_DIR"]}/v{PARAMS["version"]}'):
     print("Dir exists")
 else:
     print("Creating Dir...")
     os.mkdir(f'{PARAMS["LOGS_SAVE_DIR"]}/v{PARAMS["version"]}')
+    os.mkdir(f'{PARAMS["LOGS_SAVE_DIR"]}/v{PARAMS["version"]}/{META_INFO_DIR_NAME}')
 
 ###########################
 
@@ -118,23 +121,43 @@ gc.collect()
 print("Generating answers...")
 
 generate_answers, calc_metrics = [], []
+timportance_info = dict()
 display_iter = 100
 s_time = time()
 for i in tqdm(range(len(USER_PROMPTS))):
-    #gc.collect()
-    #torch.cuda.empty_cache()
-    
-    pred_answer, meta_info = agent.generate(
-        user_prompt=USER_PROMPTS[i], system_prompt=BAGPACK[PARAMS['bp']]['system_prompt'], 
+    pred_answer, meta_info, inputs = agent.generate(
+        user_prompt=USER_PROMPTS[i], system_prompt=BAGPACK[PARAMS['bp']]['system_prompt'],
         gen_strategy=PARAMS['gen_strat'])
 
     cur_metrics = dict()
+    cur_metrics['input_tokens'] = inputs['input_ids'].shape[1]
+    cur_metrics['gen_tokens'] = meta_info['sequences'].shape[1] - cur_metrics['input_tokens']
+    
     if PARAMS['calculate_entropy']:
         logits = torch.cat(meta_info['logits'], 0).cpu().detach()
         entropy = compute_predictive_entropy(logits)
         cur_metrics['predictive_entropy'] = float(entropy)
+    
+    if PARAMS['calculate_timportance(attention)']:
+        agent.output_attentions = True
+        tmp_assistant_prompt = pred_answer
+        _, meta_info, _ = agent.generate(
+            user_prompt=USER_PROMPTS[i], system_prompt=BAGPACK[PARAMS['bp']]['system_prompt'], 
+            gen_strategy={'max_new_tokens': 1, 'do_sample': False, 'num_beams': 1}, 
+            assistant_prompt=tmp_assistant_prompt)
+        timportance_info[i] = get_timportance_info(
+            meta_info['attentions'][0], layer_ids = PARAMS['timportnace_hyperp']['layers'], 
+            mean_attn = PARAMS['timportnace_hyperp']['mean_by'])
+        agent.output_attentions = False
+        
     calc_metrics.append(cur_metrics)
     generate_answers.append(pred_answer)
+    
+    # logits = torch.cat(meta_info['logits'], 0).cpu().detach().numpy()
+    # logits_int8 = logits.astype('int8') 
+    # token_logits = {f"token_{i}": token_logits for i, token_logits in enumerate(logits_int8)}
+    # pa_table = pa.table(token_logits)
+    # pa.parquet.write_table(pa_table, f"{LOGS_SAVE_DIR}/v{PARAMS['version']}/{META_INFO_DIR_NAME}/logits_{i}.parquet")
     
     if i % display_iter == 0:
         print(f"\n[{i}]: \nGEN: {pred_answer}\nGOLD: {dataset_df['answer'][i]}\nMETRICS: {cur_metrics}")
@@ -160,6 +183,9 @@ with open(f"{PARAMS['LOGS_SAVE_DIR']}/v{PARAMS['version']}/{GEN_ANSW_SAVE_NAME}"
 with open(f"{PARAMS['LOGS_SAVE_DIR']}/v{PARAMS['version']}/{METADATA_SAVE_NAME}", 'w', encoding='utf-8') as fp:
     fp.write(json.dumps({'elapsed_time': e_time - s_time}, ensure_ascii=False, indent=1))
 
+if PARAMS['calculate_timportance(attention)']:
+    joblib.dump(timportance_info, f"{PARAMS['LOGS_SAVE_DIR']}/v{PARAMS['version']}/{META_INFO_DIR_NAME}/{TIMPORTANCE_SAVE_NAME}")
+
 ###########################
 
 print("Preparing evaluation environment...")
@@ -167,6 +193,7 @@ print("Preparing evaluation environment...")
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('punkt_tab')
 
 with open(f'{PARAMS["LOGS_SAVE_DIR"]}/v{PARAMS["version"]}/{GEN_ANSW_SAVE_NAME}','r', encoding='utf8') as fd:
     predicted_answers = list(map(lambda v: v['gen_answer'], json.loads(fd.read())))
