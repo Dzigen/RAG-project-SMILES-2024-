@@ -1,0 +1,19 @@
+{
+ "target_answers": {
+  "BLEU2": 0.09595,
+  "BLEU1": 0.13453,
+  "ExactMatch": 0.013,
+  "METEOR": 0.37733,
+  "Levenshtain": 71.623,
+  "ROUGEL": 0.27605
+ },
+ "stub_answers": {
+  "BLEU2": 0.15484,
+  "BLEU1": 0.17894,
+  "ExactMatch": 0.149,
+  "METEOR": 0.21281,
+  "Levenshtain": 67.33,
+  "ROUGEL": 0.34632,
+  "elapsed_time_sec": 719.664
+ }
+}
