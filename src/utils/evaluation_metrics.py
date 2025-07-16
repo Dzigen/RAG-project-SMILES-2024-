@@ -73,7 +73,7 @@ class ReaderMetrics:
         self.meteor_obj = evaluate.load(f"{base_dir}/src/utils/metrics/meteor")
         print("Loading ExactMatch")
         self.em_obj = evaluate.load(f"{base_dir}/src/utils/metrics/exact_match")
-        self.bertscore_obj = BERTScore(f"{base_dir}/models/{model_path}", return_hash=True)
+        #self.bertscore_obj = BERTScore(f"{base_dir}/models/{model_path}", return_hash=True)
         if sim_score_config is not None:
             self.llmsimscore_obj = LLM_SimilarityScorer(sim_score_config, reader)
     
