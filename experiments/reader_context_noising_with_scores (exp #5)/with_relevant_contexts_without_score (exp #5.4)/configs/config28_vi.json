@@ -1,5 +1,5 @@
 {
- "version": "3.1.3",
+ "version": "2.1.3",
  "num_samples": 2000,
  "num_contexts": 5,
  "model": "../../../models/deepseek-ai/deepseek-llm-7b-chat",
@@ -14,8 +14,8 @@
   "num_beams": 1
  },
  "calculate_entropy": true,
- "revert": false,
- "centered": true,
+ "revert": true,
+ "centered": false,
  "LOGS_SAVE_DIR": "../../../experiments/reader_context_noising_with_scores (exp #5)/with_relevant_contexts_without_score (exp #5.4)/mlqa/vi/logs",
  "QA_DATASET_PATH": "../../../data/mlqa/vi/qa_dataset.csv",
  "CONTEXTS_DATASET_PATH": "../../../data/mlqa/vi/contexts.csv",
