@@ -1,19 +1,19 @@
 {
  "target_answers": {
-  "BLEU2": 0.11846,
-  "BLEU1": 0.24734,
-  "ExactMatch": 0.1315,
-  "METEOR": 0.40432,
-  "Levenshtain": 57.504,
-  "ROUGEL": 0.38616
+  "BLEU2": 0.11902,
+  "BLEU1": 0.24822,
+  "ExactMatch": 0.133,
+  "METEOR": 0.40487,
+  "Levenshtain": 57.723,
+  "ROUGEL": 0.38773
  },
  "stub_answers": {
-  "BLEU2": 0.00362,
-  "BLEU1": 0.0085,
+  "BLEU2": 0.00364,
+  "BLEU1": 0.00871,
   "ExactMatch": 0.0,
-  "METEOR": 0.06077,
-  "Levenshtain": 63.7015,
-  "ROUGEL": 0.01289,
-  "elapsed_time_sec": 282.853
+  "METEOR": 0.06151,
+  "Levenshtain": 63.9395,
+  "ROUGEL": 0.01334,
+  "elapsed_time_sec": 711.236
  }
 }
