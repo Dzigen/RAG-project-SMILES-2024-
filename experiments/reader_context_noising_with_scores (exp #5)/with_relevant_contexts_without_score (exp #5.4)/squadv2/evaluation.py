@@ -171,6 +171,7 @@ for i in tqdm(range(len(USER_PROMPTS))):
         entropy = compute_predictive_entropy(logits)
         cur_metrics['predictive_entropy'] = float(entropy)
     
+    pred_answer = None
     if PARAMS['calculate_timportance(attention)'] and not PARAMS['timportnace_hyperp']['only_for_input_tokens']:
         agent.output_attentions = True
         tmp_assistant_prompt = pred_answer
