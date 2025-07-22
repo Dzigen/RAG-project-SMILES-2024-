@@ -1,0 +1,21 @@
+{
+ "target_answers": {
+  "BLEU2": 0.0,
+  "BLEU1": 0.0,
+  "ExactMatch": 0.0,
+  "METEOR": 0.0,
+  "BertScore": NaN,
+  "Levenshtain": 13.0515,
+  "ROUGEL": 0.0
+ },
+ "stub_answers": {
+  "BLEU2": 0.0,
+  "BLEU1": 0.0,
+  "ExactMatch": 0.0,
+  "METEOR": 0.0,
+  "BertScore": NaN,
+  "Levenshtain": 37.0,
+  "ROUGEL": 0.0,
+  "elapsed_time_sec": 735.927
+ }
+}
