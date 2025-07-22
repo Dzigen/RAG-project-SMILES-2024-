@@ -33,6 +33,7 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"
 CONTEXTS_DATASET_PATH = "../../../../data/squadv2/contexts.csv"
 QA_DATASET_PATH = "../../../../data/squadv2/qa_dataset.csv"
 AGENT_MODEL_PATH = "../../../../models/Qwen/Qwen2.5-7B-Instruct" # "Undi95/Meta-Llama-3-8B-Instruct-hf" / "../../../../models/Qwen/Qwen2.5-7B-Instruct"
+#AGENT_MODEL_PATH = "Undi95/Meta-Llama-3-8B-Instruct-hf"
 
 ########################################
 
@@ -50,7 +51,11 @@ PARAMS = {
     'stub_answer': "I do not have an answer to your question",
     'calculate_entropy': True,
     'calculate_timportance(attention)': True,
-    'timportnace_hyperp': {'only_for_input_tokens': True, 'layers': [0,1,13,27], 'mean_by': ['columns', 'rows']},
+    'timportnace_hyperp': {
+        'only_for_input_tokens': True, 
+        'layers': [0,1,13,27], # qwen2.5
+        #'layers': [0,1,15,31], # llama3.1
+        'mean_by': ['columns', 'rows']},
     'revert': False,
     'centered': False
 }
