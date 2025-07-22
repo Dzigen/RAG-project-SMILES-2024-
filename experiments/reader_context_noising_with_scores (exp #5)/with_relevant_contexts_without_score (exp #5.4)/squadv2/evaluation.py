@@ -148,7 +148,7 @@ s_time = time()
 for i in tqdm(range(len(USER_PROMPTS))):
     if PARAMS['calculate_timportance(attention)'] and PARAMS['timportnace_hyperp']['only_for_input_tokens']:
         agent.output_attentions = True
-        _, meta_info, _, cur_prompt = agent.generate(
+        _, meta_info, inputs, cur_prompt = agent.generate(
             user_prompt=USER_PROMPTS[i], system_prompt=PARAMS['system_prompt'], 
             gen_strategy={'max_new_tokens': 1, 'do_sample': False, 'num_beams': 1})
         
