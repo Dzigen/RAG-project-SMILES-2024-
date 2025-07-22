@@ -24,7 +24,7 @@ def compute_tokens_importance(attention_info: torch.Tensor, mean_by: str = 'colu
         attmatrix_axis = 1
 
     # Example of attention_info shape: 32x486x486 (num_heads X input_tokens X input_tokens)
-    t_importance = attention_info.mean(axis=attmatrix_axis).mean(axis=0).float().numpy()
+    t_importance = attention_info.mean(axis=attmatrix_axis).mean(axis=0).float().cpu().numpy()
     # Corresponding t_importance shape: 486
     
     return t_importance
