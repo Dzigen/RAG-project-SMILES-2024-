@@ -9,11 +9,7 @@ torch.cuda.empty_cache()
 SAVE_MODEL_PATH = "../models/mistralai/Mistral-7B-Instruct-v0.3" 
 LOAD_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"  
 
-<<<<<<< HEAD
-access_token = "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"
-=======
 access_token = "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"
->>>>>>> 74386f9 (asd)
 
 tokenizer = AutoTokenizer.from_pretrained(LOAD_MODEL, token=access_token)
 model = AutoModelForCausalLM.from_pretrained(LOAD_MODEL, torch_dtype=torch.bfloat16, token=access_token).to('cpu')

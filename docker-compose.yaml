@@ -1,0 +1,16 @@
+services:
+
+  empty_workspace:
+    image: m.menschikov/empty_workspace:v1
+    container_name: smiles2024_exps_mmenschikov
+    hostname: smiles2024_exps_mmenschikov
+    volumes:
+      - ../:/home/workspace
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 32G
+        reservations:
+          cpus: '2'
+          memory: 16G
