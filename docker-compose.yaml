@@ -5,7 +5,7 @@ services:
     container_name: smiles2024_exps_mmenschikov
     hostname: smiles2024_exps_mmenschikov
     volumes:
-      - ../:/home/workspace
+      - ./:/home/workspace
     deploy:
       resources:
         limits:
@@ -14,3 +14,7 @@ services:
         reservations:
           cpus: '2'
           memory: 16G
+          devices:
+            - driver: nvidia
+              device_ids: ['1']
+              capabilities: [gpu]

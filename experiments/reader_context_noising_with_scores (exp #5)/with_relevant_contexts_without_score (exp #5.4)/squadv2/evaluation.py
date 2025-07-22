@@ -37,7 +37,7 @@ AGENT_MODEL_PATH = "../../../../models/Qwen/Qwen2.5-7B-Instruct" # "Undi95/Meta-
 ########################################
 
 PARAMS = {
-    'version': "3.1.2.attn_inptonly",
+    'version': "1.1.2.attn_inptonly",
     'num_samples': 2000,
     'num_contexts': 5,
     'model': AGENT_MODEL_PATH,
@@ -52,7 +52,7 @@ PARAMS = {
     'calculate_timportance(attention)': True,
     'timportnace_hyperp': {'only_for_input_tokens': True, 'layers': [0,1,13,27], 'mean_by': ['columns', 'rows']},
     'revert': False,
-    'centered': True
+    'centered': False
 }
 
 METADATA_SAVE_NAME = 'metadata.json'
@@ -152,7 +152,7 @@ for i in tqdm(range(len(USER_PROMPTS))):
             mean_attn = PARAMS['timportnace_hyperp']['mean_by'])
         agent.output_attentions = False
     else:
-        pred_answer, meta_info, inputs, input_prompt = agent.generate(
+        pred_answer, meta_info, inputs, cur_prompt = agent.generate(
             user_prompt=USER_PROMPTS[i], system_prompt=PARAMS['system_prompt'],
             gen_strategy=PARAMS['gen_strat'])
 
@@ -275,10 +275,10 @@ for i in process:
         process.set_postfix({m_name: np.mean(score) for m_name, score in stub_scores.items()})
 
 target_scores = {m_name: round(float(np.mean(score)), 5) for m_name, score in target_scores.items()}
-target_scores['BertScore'] = metrics.bertscore(predicted_answers, target_answers)
+#target_scores['BertScore'] = metrics.bertscore(predicted_answers, target_answers)
 
 stub_scores = {m_name: round(float(np.mean(score)), 5) for m_name, score in stub_scores.items()}
-stub_scores['BertScore'] = metrics.bertscore(tmp_stub_pred_answers, [PARAMS['stub_answer']]*len(tmp_stub_pred_answers))
+#stub_scores['BertScore'] = metrics.bertscore(tmp_stub_pred_answers, [PARAMS['stub_answer']]*len(tmp_stub_pred_answers))
 stub_scores['elapsed_time_sec'] = round(float(process.format_dict["elapsed"]), 3)
 
 ########################################
