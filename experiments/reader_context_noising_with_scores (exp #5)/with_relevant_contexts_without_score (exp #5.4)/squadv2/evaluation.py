@@ -32,13 +32,13 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"
 
 CONTEXTS_DATASET_PATH = "../../../../data/squadv2/contexts.csv"
 QA_DATASET_PATH = "../../../../data/squadv2/qa_dataset.csv"
-AGENT_MODEL_PATH = "../../../../models/Qwen/Qwen2.5-7B-Instruct" # "Undi95/Meta-Llama-3-8B-Instruct-hf" / "../../../../models/Qwen/Qwen2.5-7B-Instruct"
-#AGENT_MODEL_PATH = "Undi95/Meta-Llama-3-8B-Instruct-hf"
+#AGENT_MODEL_PATH = "../../../../models/Qwen/Qwen2.5-7B-Instruct" # "Undi95/Meta-Llama-3-8B-Instruct-hf" / "../../../../models/Qwen/Qwen2.5-7B-Instruct"
+AGENT_MODEL_PATH = "Undi95/Meta-Llama-3-8B-Instruct-hf"
 
 ########################################
 
 PARAMS = {
-    'version': "1.1.2.attn_inptonly",
+    'version': "1.1.1.attn_inptonly",
     'num_samples': 2000,
     'num_contexts': 5,
     'model': AGENT_MODEL_PATH,
@@ -53,8 +53,8 @@ PARAMS = {
     'calculate_timportance(attention)': True,
     'timportnace_hyperp': {
         'only_for_input_tokens': True, 
-        'layers': [0,1,13,27], # qwen2.5
-        #'layers': [0,1,15,31], # llama3.1
+        #'layers': [0,1,13,27], # qwen2.5
+        'layers': [0,1,15,31], # llama3.1
         'mean_by': ['columns', 'rows']},
     'revert': False,
     'centered': False
