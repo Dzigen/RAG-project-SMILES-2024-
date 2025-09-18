@@ -7,6 +7,7 @@ data/
 .nlp_venv
 models/
 archives/
+user_prompts.json
 *.csv
 # C extensions
 *.so
