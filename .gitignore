@@ -8,6 +8,7 @@ data/
 models/
 archives/
 user_prompts.json
+generation_info.json
 *.csv
 # C extensions
 *.so
