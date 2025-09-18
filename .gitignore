@@ -9,6 +9,9 @@ models/
 archives/
 user_prompts.json
 generation_info.json
+__pycache__
+heavy_exp_logs
+ModelPosBiasPaper(SMILES2024)_HeavyExpLogs.tar.gz
 *.csv
 # C extensions
 *.so
