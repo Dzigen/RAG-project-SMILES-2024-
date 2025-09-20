@@ -1,0 +1,151 @@
+N,Dataset,Setting,ContextsAmount,Model,Position,CorrectScore,WrongScore,NoScores
+1,Squadv2 (en),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",TOP,0.907,0.877,0.913
+1,Squadv2 (en),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.922,0.887,0.921
+1,Squadv2 (en),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.953,0.929,0.950
+2,MTSquad (ru),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",TOP,0.804,0.791,0.841
+2,MTSquad (ru),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.834,0.829,0.843
+2,MTSquad (ru),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.884,0.875,0.881
+3,MLQA (de),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",TOP,0.737,0.732,0.720
+3,MLQA (de),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.735,0.708,0.724
+3,MLQA (de),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.799,0.772,0.777
+4,MLQA (hi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",TOP,,,
+4,MLQA (hi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",MIDDLE,,,
+4,MLQA (hi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",BOTTOM,,,
+5,MLQA (vi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",TOP,0.284,0.277,0.309
+5,MLQA (vi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.317,0.314,0.330
+5,MLQA (vi),"LLM as a judge (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.407,0.397,0.415
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Gemma 7B",TOP,0.815,0.683,0.831
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Gemma 7B",MIDDLE,0.849,0.614,0.832
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Gemma 7B",BOTTOM,0.782,0.534,0.815
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Gemma 7B",TOP,0.775,0.655,0.797
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Gemma 7B",MIDDLE,0.777,0.701,0.819
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Gemma 7B",BOTTOM,0.782,0.707,0.824
+3,MLQA (de),"LLM as a judge (2000)",5,"Gemma 7B",TOP,0.477,0.324,0.524
+3,MLQA (de),"LLM as a judge (2000)",5,"Gemma 7B",MIDDLE,0.508,0.289,0.486
+3,MLQA (de),"LLM as a judge (2000)",5,"Gemma 7B",BOTTOM,0.432,0.244,0.441
+4,MLQA (hi),"LLM as a judge (2000)",5,"Gemma 7B",TOP,0.431,0.372,0.229
+4,MLQA (hi),"LLM as a judge (2000)",5,"Gemma 7B",MIDDLE,0.402,0.334,0.237
+4,MLQA (hi),"LLM as a judge (2000)",5,"Gemma 7B",BOTTOM,0.393,0.349,0.228
+5,MLQA (vi),"LLM as a judge (2000)",5,"Gemma 7B",TOP,0.039,0.021,0.484
+5,MLQA (vi),"LLM as a judge (2000)",5,"Gemma 7B",MIDDLE,0.039,0.020,0.483
+5,MLQA (vi),"LLM as a judge (2000)",5,"Gemma 7B",BOTTOM,0.035,0.014,0.471
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Mistral 7B",TOP,0.970,0.956,0.961
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Mistral 7B",MIDDLE,0.958,0.929,0.957
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Mistral 7B",BOTTOM,0.963,0.939,0.958
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Mistral 7B",TOP,0.939,0.926,0.936
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Mistral 7B",MIDDLE,0.920,0.911,0.924
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Mistral 7B",BOTTOM,0.932,0.928,0.930
+3,MLQA (de),"LLM as a judge (2000)",5,"Mistral 7B",TOP,0.829,0.799,0.813
+3,MLQA (de),"LLM as a judge (2000)",5,"Mistral 7B",MIDDLE,0.815,0.750,0.801
+3,MLQA (de),"LLM as a judge (2000)",5,"Mistral 7B",BOTTOM,0.823,0.787,0.819
+4,MLQA (hi),"LLM as a judge (2000)",5,"Mistral 7B",TOP,0.520,0.439,0.601
+4,MLQA (hi),"LLM as a judge (2000)",5,"Mistral 7B",MIDDLE,0.505,0.425,0.558
+4,MLQA (hi),"LLM as a judge (2000)",5,"Mistral 7B",BOTTOM,0.546,0.471,0.585
+5,MLQA (vi),"LLM as a judge (2000)",5,"Mistral 7B",TOP,0.520,0.428,0.584
+5,MLQA (vi),"LLM as a judge (2000)",5,"Mistral 7B",MIDDLE,0.517,0.406,0.566
+5,MLQA (vi),"LLM as a judge (2000)",5,"Mistral 7B",BOTTOM,0.545,0.457,0.588
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Llama3.1 8B",TOP,0.955,0.929,0.951
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Llama3.1 8B",MIDDLE,0.926,0.858,0.946
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Llama3.1 8B",BOTTOM,0.932,0.826,0.930
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Llama3.1 8B",TOP,0.928,0.837,0.906
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Llama3.1 8B",MIDDLE,0.908,0.768,0.888
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Llama3.1 8B",BOTTOM,0.911,0.761,0.866
+3,MLQA (de),"LLM as a judge (2000)",5,"Llama3.1 8B",TOP,0.680,0.485,0.719
+3,MLQA (de),"LLM as a judge (2000)",5,"Llama3.1 8B",MIDDLE,0.602,0.312,0.668
+3,MLQA (de),"LLM as a judge (2000)",5,"Llama3.1 8B",BOTTOM,0.613,0.307,0.646
+4,MLQA (hi),"LLM as a judge (2000)",5,"Llama3.1 8B",TOP,0.532,0.309,0.729
+4,MLQA (hi),"LLM as a judge (2000)",5,"Llama3.1 8B",MIDDLE,0.448,0.112,0.676
+4,MLQA (hi),"LLM as a judge (2000)",5,"Llama3.1 8B",BOTTOM,0.494,0.038,0.644
+5,MLQA (vi),"LLM as a judge (2000)",5,"Llama3.1 8B",TOP,0.764,0.679,0.737
+5,MLQA (vi),"LLM as a judge (2000)",5,"Llama3.1 8B",MIDDLE,0.714,0.536,0.707
+5,MLQA (vi),"LLM as a judge (2000)",5,"Llama3.1 8B",BOTTOM,0.726,0.473,0.656
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Qwen2.5 7B",TOP,0.943,0.927,0.952
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Qwen2.5 7B",MIDDLE,0.941,0.931,0.945
+1,Squadv2 (en),"LLM as a judge (2000)",5,"Qwen2.5 7B",BOTTOM,0.949,0.948,0.956
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Qwen2.5 7B",TOP,0.938,0.909,0.934
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Qwen2.5 7B",MIDDLE,0.927,0.917,0.944
+2,MTSquad (ru),"LLM as a judge (2000)",5,"Qwen2.5 7B",BOTTOM,0.937,0.935,0.939
+3,MLQA (de),"LLM as a judge (2000)",5,"Qwen2.5 7B",TOP,0.648,0.553,0.644
+3,MLQA (de),"LLM as a judge (2000)",5,"Qwen2.5 7B",MIDDLE,0.629,0.566,0.628
+3,MLQA (de),"LLM as a judge (2000)",5,"Qwen2.5 7B",BOTTOM,0.655,0.602,0.649
+4,MLQA (hi),"LLM as a judge (2000)",5,"Qwen2.5 7B",TOP,0.591,0.540,0.619
+4,MLQA (hi),"LLM as a judge (2000)",5,"Qwen2.5 7B",MIDDLE,0.579,0.543,0.609
+4,MLQA (hi),"LLM as a judge (2000)",5,"Qwen2.5 7B",BOTTOM,0.642,0.592,0.643
+5,MLQA (vi),"LLM as a judge (2000)",5,"Qwen2.5 7B",TOP,0.722,0.644,0.713
+5,MLQA (vi),"LLM as a judge (2000)",5,"Qwen2.5 7B",MIDDLE,0.676,0.619,0.707
+5,MLQA (vi),"LLM as a judge (2000)",5,"Qwen2.5 7B",BOTTOM,0.718,0.647,0.700
+1,Squadv2 (en),"Entropy (2000)",5,"DeepSeek 7B Chat",TOP,0.140,0.148,0.121
+1,Squadv2 (en),"Entropy (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.132,0.137,0.116
+1,Squadv2 (en),"Entropy (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.128,0.129,0.114
+2,MTSquad (ru),"Entropy (2000)",5,"DeepSeek 7B Chat",TOP,0.225,0.222,0.240
+2,MTSquad (ru),"Entropy (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.216,0.222,0.232
+2,MTSquad (ru),"Entropy (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.208,0.212,0.231
+3,MLQA (de),"Entropy (2000)",5,"DeepSeek 7B Chat",TOP,0.237,0.241,0.240
+3,MLQA (de),"Entropy (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.238,0.249,0.238
+3,MLQA (de),"Entropy (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.222,0.233,0.228
+4,MLQA (hi),"Entropy (2000)",5,"DeepSeek 7B Chat",TOP,,,
+4,MLQA (hi),"Entropy (2000)",5,"DeepSeek 7B Chat",MIDDLE,,,
+4,MLQA (hi),"Entropy (2000)",5,"DeepSeek 7B Chat",BOTTOM,,,
+5,MLQA (vi),"Entropy (2000)",5,"DeepSeek 7B Chat",TOP,0.427,0.423,0.332
+5,MLQA (vi),"Entropy (2000)",5,"DeepSeek 7B Chat",MIDDLE,0.412,0.409,0.322
+5,MLQA (vi),"Entropy (2000)",5,"DeepSeek 7B Chat",BOTTOM,0.374,0.379,0.277
+1,Squadv2 (en),"Entropy (2000)",5,"Gemma 7B",TOP,0.131,0.160,0.116
+1,Squadv2 (en),"Entropy (2000)",5,"Gemma 7B",MIDDLE,0.141,0.166,0.110
+1,Squadv2 (en),"Entropy (2000)",5,"Gemma 7B",BOTTOM,0.146,0.175,0.113
+2,MTSquad (ru),"Entropy (2000)",5,"Gemma 7B",TOP,0.183,0.229,0.155
+2,MTSquad (ru),"Entropy (2000)",5,"Gemma 7B",MIDDLE,0.164,0.204,0.149
+2,MTSquad (ru),"Entropy (2000)",5,"Gemma 7B",BOTTOM,0.167,0.199,0.145
+3,MLQA (de),"Entropy (2000)",5,"Gemma 7B",TOP,0.234,0.228,0.219
+3,MLQA (de),"Entropy (2000)",5,"Gemma 7B",MIDDLE,0.218,0.209,0.225
+3,MLQA (de),"Entropy (2000)",5,"Gemma 7B",BOTTOM,0.215,0.197,0.235
+4,MLQA (hi),"Entropy (2000)",5,"Gemma 7B",TOP,0.279,0.325,0.366
+4,MLQA (hi),"Entropy (2000)",5,"Gemma 7B",MIDDLE,0.302,0.349,0.382
+4,MLQA (hi),"Entropy (2000)",5,"Gemma 7B",BOTTOM,0.312,0.343,0.391
+5,MLQA (vi),"Entropy (2000)",5,"Gemma 7B",TOP,0.120,0.112,0.115
+5,MLQA (vi),"Entropy (2000)",5,"Gemma 7B",MIDDLE,0.110,0.106,0.113
+5,MLQA (vi),"Entropy (2000)",5,"Gemma 7B",BOTTOM,0.104,0.104,0.114
+1,Squadv2 (en),"Entropy (2000)",5,"Mistral 7B",TOP,0.122,0.124,0.126
+1,Squadv2 (en),"Entropy (2000)",5,"Mistral 7B",MIDDLE,0.125,0.130,0.131
+1,Squadv2 (en),"Entropy (2000)",5,"Mistral 7B",BOTTOM,0.117,0.122,0.125
+2,MTSquad (ru),"Entropy (2000)",5,"Mistral 7B",TOP,0.185,0.191,0.204
+2,MTSquad (ru),"Entropy (2000)",5,"Mistral 7B",MIDDLE,0.193,0.200,0.210
+2,MTSquad (ru),"Entropy (2000)",5,"Mistral 7B",BOTTOM,0.190,0.197,0.207
+3,MLQA (de),"Entropy (2000)",5,"Mistral 7B",TOP,0.276,0.288,0.292
+3,MLQA (de),"Entropy (2000)",5,"Mistral 7B",MIDDLE,0.286,0.321,0.295
+3,MLQA (de),"Entropy (2000)",5,"Mistral 7B",BOTTOM,0.274,0.300,0.287
+4,MLQA (hi),"Entropy (2000)",5,"Mistral 7B",TOP,0.213,0.202,0.238
+4,MLQA (hi),"Entropy (2000)",5,"Mistral 7B",MIDDLE,0.221,0.204,0.236
+4,MLQA (hi),"Entropy (2000)",5,"Mistral 7B",BOTTOM,0.227,0.214,0.237
+5,MLQA (vi),"Entropy (2000)",5,"Mistral 7B",TOP,0.175,0.166,0.225
+5,MLQA (vi),"Entropy (2000)",5,"Mistral 7B",MIDDLE,0.185,0.171,0.232
+5,MLQA (vi),"Entropy (2000)",5,"Mistral 7B",BOTTOM,0.185,0.171,0.218
+1,Squadv2 (en),"Entropy (2000)",5,"Llama3.1 8B",TOP,0.232,0.248,0.194
+1,Squadv2 (en),"Entropy (2000)",5,"Llama3.1 8B",MIDDLE,0.237,0.239,0.201
+1,Squadv2 (en),"Entropy (2000)",5,"Llama3.1 8B",BOTTOM,0.241,0.240,0.206
+2,MTSquad (ru),"Entropy (2000)",5,"Llama3.1 8B",TOP,0.203,0.224,0.169
+2,MTSquad (ru),"Entropy (2000)",5,"Llama3.1 8B",MIDDLE,0.217,0.219,0.182
+2,MTSquad (ru),"Entropy (2000)",5,"Llama3.1 8B",BOTTOM,0.214,0.222,0.191
+3,MLQA (de),"Entropy (2000)",5,"Llama3.1 8B",TOP,0.231,0.204,0.220
+3,MLQA (de),"Entropy (2000)",5,"Llama3.1 8B",MIDDLE,0.220,0.158,0.225
+3,MLQA (de),"Entropy (2000)",5,"Llama3.1 8B",BOTTOM,0.225,0.152,0.220
+4,MLQA (hi),"Entropy (2000)",5,"Llama3.1 8B",TOP,0.303,0.320,0.237
+4,MLQA (hi),"Entropy (2000)",5,"Llama3.1 8B",MIDDLE,0.294,0.290,0.257
+4,MLQA (hi),"Entropy (2000)",5,"Llama3.1 8B",BOTTOM,0.289,0.277,0.275
+5,MLQA (vi),"Entropy (2000)",5,"Llama3.1 8B",TOP,0.272,0.296,0.267
+5,MLQA (vi),"Entropy (2000)",5,"Llama3.1 8B",MIDDLE,0.288,0.299,0.295
+5,MLQA (vi),"Entropy (2000)",5,"Llama3.1 8B",BOTTOM,0.298,0.298,0.313
+1,Squadv2 (en),"Entropy (2000)",5,"Qwen2.5 7B",TOP,0.092,0.093,0.100
+1,Squadv2 (en),"Entropy (2000)",5,"Qwen2.5 7B",MIDDLE,0.094,0.102,0.100
+1,Squadv2 (en),"Entropy (2000)",5,"Qwen2.5 7B",BOTTOM,0.093,0.099,0.097
+2,MTSquad (ru),"Entropy (2000)",5,"Qwen2.5 7B",TOP,0.105,0.111,0.129
+2,MTSquad (ru),"Entropy (2000)",5,"Qwen2.5 7B",MIDDLE,0.112,0.118,0.126
+2,MTSquad (ru),"Entropy (2000)",5,"Qwen2.5 7B",BOTTOM,0.112,0.109,0.126
+3,MLQA (de),"Entropy (2000)",5,"Qwen2.5 7B",TOP,0.117,0.106,0.115
+3,MLQA (de),"Entropy (2000)",5,"Qwen2.5 7B",MIDDLE,0.126,0.118,0.130
+3,MLQA (de),"Entropy (2000)",5,"Qwen2.5 7B",BOTTOM,0.128,0.118,0.125
+4,MLQA (hi),"Entropy (2000)",5,"Qwen2.5 7B",TOP,0.078,0.075,0.076
+4,MLQA (hi),"Entropy (2000)",5,"Qwen2.5 7B",MIDDLE,0.082,0.077,0.082
+4,MLQA (hi),"Entropy (2000)",5,"Qwen2.5 7B",BOTTOM,0.083,0.082,0.080
+5,MLQA (vi),"Entropy (2000)",5,"Qwen2.5 7B",TOP,0.114,0.101,0.107
+5,MLQA (vi),"Entropy (2000)",5,"Qwen2.5 7B",MIDDLE,0.117,0.103,0.120
+5,MLQA (vi),"Entropy (2000)",5,"Qwen2.5 7B",BOTTOM,0.111,0.100,0.112
