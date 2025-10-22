@@ -15,4 +15,4 @@ pip install -r requirements.txt
 The steps for evaluating your LLM's generations are following:
 1. [Convert generations](judge/parse_generations.py) to the format, appropriate for LLM-as-a-Judge.
 2. [Run the evaluation](judge/run_judgements.py).
-3. Aggregate judge's responses and calculate final metrics.
+3. Aggregate judge's responses and calculate final metrics with the [notebook](judge/parse_scores.ipynb).
