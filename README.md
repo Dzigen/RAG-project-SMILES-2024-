@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 ## Responses generation
-## Entrophy
+## Entropy
 ## LLM-as-a-Judge Evaluation
 
 The steps for evaluating your LLM's generations are following:
